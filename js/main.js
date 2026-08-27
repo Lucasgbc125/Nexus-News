@@ -16,7 +16,7 @@ const searchInput = document.querySelector('#search-input');
 const highlightsTitle = document.querySelector('#inicio .section-heading h1');
 const newsSections = [
   { id: 'highlights-news', section: 'world', label: 'DESTAQUE', maxRecords: 5, featured: true },
-  { id: 'sao-paulo-news', query: 'São Paulo', label: 'SÃO PAULO', maxRecords: 4 },
+  { id: 'sao-paulo-news', query: '"São Paulo" Brazil', label: 'SÃO PAULO', maxRecords: 4 },
   { id: 'economia-news', section: 'business', label: 'ECONOMIA', maxRecords: 4 },
   { id: 'tecnologia-news', section: 'technology', label: 'TECNOLOGIA', maxRecords: 4 },
   { id: 'esportes-news', section: 'sport', label: 'ESPORTES', maxRecords: 4 },
@@ -243,6 +243,14 @@ searchForm.addEventListener('submit', (event) => {
 
 searchInput.addEventListener('search', () => {
   if (!searchInput.value.trim()) searchNews('');
+});
+
+document.querySelectorAll('[data-refresh-section]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const section = newsSections.find((item) => item.id === link.dataset.refreshSection);
+    if (section) updateNewsSection(section);
+  });
 });
 
 loadSavedTheme();
