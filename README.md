@@ -12,7 +12,7 @@ Na Fase 3, o painel de moedas consulta a [Frankfurter](https://frankfurter.dev/v
 
 Na Fase 4, a previsão de São Paulo usa a [Open-Meteo](https://open-meteo.com/en/docs), também sem chave. O cartão mostra condições atuais, sensação térmica, máxima, mínima, umidade, vento e os próximos quatro dias. A atualização ocorre a cada hora.
 
-Na Fase 5, os destaques, São Paulo, economia, tecnologia e esportes passam a usar a [Guardian Open Platform](https://open-platform.theguardian.com/documentation/search). O projeto usa a chave pública de demonstração `test`, mostrada na documentação. Ela é apropriada para este estudo; antes de publicar, crie uma chave Developer gratuita e configure-a separadamente. Os cards apresentam título, fonte, data e link para a matéria original; imagens só aparecem quando a fonte fornece uma URL HTTPS válida. A atualização ocorre a cada 30 minutos.
+Na Fase 5, os destaques, São Paulo, economia, tecnologia e esportes usam a [Guardian Open Platform](https://open-platform.theguardian.com/documentation/search) por meio de um Cloudflare Worker. A chave Developer fica guardada como Secret no Worker e não é enviada ao GitHub Pages. Os cards apresentam título, fonte, data e link para a matéria original; imagens só aparecem quando a fonte fornece uma URL HTTPS válida. A atualização ocorre a cada 30 minutos.
 
 Cada card também possui o botão **Traduzir para português**, que abre a matéria original no Google Tradutor. Essa opção não usa chave de API nem altera o texto original do portal.
 

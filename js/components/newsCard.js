@@ -21,8 +21,6 @@ function createNewsCard(article, category, isFeatured = false) {
   const link = document.createElement('a');
   const articleUrl = safeUrl(article.webUrl);
   link.href = articleUrl || '#';
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
   link.setAttribute('aria-label', `Abrir notícia: ${article.webTitle || 'sem título'}`);
 
   const imageUrl = safeUrl(article.fields?.thumbnail);

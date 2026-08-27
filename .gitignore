@@ -1,3 +1,5 @@
 ﻿~$*.docx
 *.docx
 *.zip
+workers/news-proxy/.dev.vars
+workers/news-proxy/.wrangler/
