@@ -169,9 +169,19 @@ async function updateNewsSection({ id, section, query, label, maxRecords, featur
       return;
     }
 
-    container.replaceChildren(...articles.map((article, index) => (
+    const cards = articles.map((article, index) => (
       createNewsCard(article, label, Boolean(featured && index === 0))
-    )));
+    ));
+
+    if (featured) {
+      const sideFeed = document.createElement('div');
+      sideFeed.className = 'news-side-feed';
+      sideFeed.append(...cards.slice(1));
+      container.replaceChildren(cards[0], sideFeed);
+      return;
+    }
+
+    container.replaceChildren(...cards);
   } catch (error) {
     loading.textContent = 'Não foi possível carregar estas notícias no momento.';
   }

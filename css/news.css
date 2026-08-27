@@ -3,7 +3,8 @@
 .news-card-live { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 1px 0 rgba(14,24,27,.03); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .news-card-live:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: var(--shadow); }
 .news-card-live > a:first-child { display: grid; grid-template-columns: minmax(118px, 34%) 1fr; min-height: 150px; color: var(--text); text-decoration: none; }
-.news-card-featured { grid-row: span 2; }
+.news-card-featured { min-width: 0; }
+.news-side-feed { display: grid; gap: 18px; align-content: start; }
 .news-card-featured > a:first-child { display: flex; flex-direction: column; height: 100%; }
 .news-image { display: grid; min-height: 150px; place-items: center; overflow: hidden; background: linear-gradient(145deg, #253b42, #48626a); }
 .news-card-featured .news-image { min-height: 270px; }
@@ -25,5 +26,5 @@
 .category-section .eyebrow, .category-section .text-link { color: var(--section-accent); }
 .section-intro { max-width: 34rem; margin: 9px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.45; }
 .city-section .news-card-live, .economy-section .news-card-live, .sport-section .news-card-live { border-top: 3px solid color-mix(in srgb, var(--section-accent) 55%, var(--surface)); }
-@media (max-width: 900px) { .news-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); } .news-card-featured { grid-row: span 1; } .news-card-featured .news-image { min-height: 220px; } }
+@media (max-width: 900px) { .news-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); } .news-card-featured .news-image { min-height: 220px; } }
 @media (max-width: 620px) { .news-feed, .news-highlights { grid-template-columns: 1fr; gap: 14px; } .news-card-live > a:first-child, .news-card-featured > a:first-child { display: grid; grid-template-columns: minmax(110px, 34%) 1fr; min-height: 124px; } .news-image, .news-card-featured .news-image { min-height: 124px; } .news-copy { padding: 14px; } .news-copy h2, .news-copy h3 { margin-bottom: 8px; font-size: 1.08rem; -webkit-line-clamp: 3; } .news-copy h2 { font-size: 1.12rem; } .section-intro { max-width: 18rem; font-size: .76rem; } }
