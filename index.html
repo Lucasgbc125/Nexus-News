@@ -35,7 +35,10 @@
           <a href="#esportes">Esportes</a><a href="#tecnologia">Tecnologia</a><a href="#mobilidade">Serviços</a><a href="#clima">Clima</a>
         </nav>
         <div class="header-actions">
-          <label class="search" for="search-input"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Pesquisar notícias" /></label>
+          <form id="news-search" class="search" role="search">
+            <button class="search-submit" type="submit" aria-label="Pesquisar notícias"><span aria-hidden="true">⌕</span></button>
+            <input id="search-input" type="search" placeholder="Pesquisar notícias" aria-label="Pesquisar notícias" />
+          </form>
           <button class="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Alternar tema"><span aria-hidden="true">☾</span></button>
         </div>
       </div>

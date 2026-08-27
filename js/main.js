@@ -11,6 +11,9 @@ const currencyTicker = document.querySelector('#currency-ticker');
 const currencyStatus = document.querySelector('#currency-status');
 const weatherSection = document.querySelector('#clima');
 const mobilityPanel = document.querySelector('#mobility-panel');
+const searchForm = document.querySelector('#news-search');
+const searchInput = document.querySelector('#search-input');
+const highlightsTitle = document.querySelector('#inicio .section-heading h1');
 const newsSections = [
   { id: 'highlights-news', section: 'world', label: 'DESTAQUE', maxRecords: 5, featured: true },
   { id: 'sao-paulo-news', query: 'São Paulo', label: 'SÃO PAULO', maxRecords: 4 },
@@ -208,10 +211,38 @@ citySelect.addEventListener('change', () => {
   citySelect.value = '';
 });
 
-// A busca será conectada às notícias reais em uma fase futura. Por enquanto,
-// evitamos que a tecla Enter recarregue a página durante a demonstração.
-document.querySelector('#search-input').addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') event.preventDefault();
+// A lupa abre o campo em telas pequenas e pesquisa títulos recentes na fonte.
+async function searchNews(query) {
+  const term = query.trim();
+  if (!term) {
+    highlightsTitle.textContent = 'Destaques do dia';
+    await updateNews();
+    return;
+  }
+
+  highlightsTitle.textContent = 'Resultados da busca';
+  await updateNewsSection({
+    id: 'highlights-news',
+    query: term,
+    label: 'BUSCA',
+    maxRecords: 5,
+    featured: true,
+  });
+  document.querySelector('#inicio').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  searchForm.classList.add('is-open');
+  if (!searchInput.value.trim()) {
+    searchInput.focus();
+    return;
+  }
+  searchNews(searchInput.value);
+});
+
+searchInput.addEventListener('search', () => {
+  if (!searchInput.value.trim()) searchNews('');
 });
 
 loadSavedTheme();
