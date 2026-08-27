@@ -1,0 +1,2 @@
+:root { --bg:#fffdf9; --surface:#fff; --surface-alt:#f4f2ed; --text:#182023; --muted:#667074; --line:#e4e3df; --accent:#ff5a3d; --accent-dark:#d9452e; --inverse:#102126; --shadow:0 12px 35px rgba(28,34,35,.08); --radius:18px; }
+body.dark-theme { --bg:#111a1d; --surface:#182428; --surface-alt:#202e32; --text:#f4f5f1; --muted:#b0bbbd; --line:#314045; --accent:#ff785f; --accent-dark:#ff927e; --inverse:#f6f1e8; --shadow:0 12px 35px rgba(0,0,0,.2); }

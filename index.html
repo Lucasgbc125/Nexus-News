@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nexus News: portal de notícias para aprender HTML, CSS e JavaScript." />
+    <title>Nexus News | Informação em movimento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/clocks.css" />
+    <link rel="stylesheet" href="css/news.css" />
+    <link rel="stylesheet" href="css/mobility.css" />
+    <script src="js/api/currency.js" defer></script>
+    <script src="js/api/weather.js" defer></script>
+    <script src="js/api/news.js" defer></script>
+    <script src="js/api/mobility.js" defer></script>
+    <script src="js/components/currencyCard.js" defer></script>
+    <script src="js/components/weatherCard.js" defer></script>
+    <script src="js/components/newsCard.js" defer></script>
+    <script src="js/components/mobilityCard.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="brand" href="#inicio" aria-label="Nexus News, início">NEXUS<span>•</span>NEWS</a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a class="active" href="#inicio">Início</a><a href="#sao-paulo">São Paulo</a><a href="#economia">Economia</a>
+          <a href="#esportes">Esportes</a><a href="#tecnologia">Tecnologia</a><a href="#mobilidade">Serviços</a><a href="#clima">Clima</a>
+        </nav>
+        <div class="header-actions">
+          <label class="search" for="search-input"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Pesquisar notícias" /></label>
+          <button class="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Alternar tema"><span aria-hidden="true">☾</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="market-bar" aria-label="Cotações de moedas"><div class="container ticker-wrap">
+        <span class="market-title">Moedas <small id="currency-status">Carregando cotações...</small></span>
+        <div id="currency-ticker" class="ticker" aria-live="polite"></div>
+      </div></section>
+
+      <section class="clock-strip container" aria-label="Relógios mundiais">
+        <div class="clock-heading"><p class="eyebrow">AO REDOR DO MUNDO</p><p id="current-date" class="current-date" aria-live="polite"></p></div>
+        <div id="clocks" class="clocks" aria-live="polite"></div>
+        <label class="city-select" for="city-select">Adicionar cidade
+          <select id="city-select"><option value="">Selecionar</option><option value="America/Los_Angeles">Los Angeles</option><option value="Europe/Paris">Paris</option><option value="Asia/Seoul">Seul</option><option value="Australia/Sydney">Sydney</option></select>
+        </label>
+      </section>
+
+      <section id="inicio" class="container highlights section">
+        <div class="section-heading"><div><p class="eyebrow">EDIÇÃO DE HOJE</p><h1>Destaques do dia</h1></div><a href="#" class="text-link">Ver todos <span>→</span></a></div>
+        <div id="highlights-news" class="news-feed news-highlights"><p class="news-state">Carregando notícias...</p></div>
+      </section>
+
+      <div class="container dual-sections">
+        <section id="sao-paulo" class="section category-section"><div class="section-heading"><div><p class="eyebrow">CIDADE</p><h2>São Paulo</h2></div><a href="#" class="text-link">Mais notícias →</a></div><div id="sao-paulo-news" class="news-feed"><p class="news-state">Carregando notícias...</p></div></section>
+        <section id="economia" class="section category-section"><div class="section-heading"><div><p class="eyebrow">MERCADOS</p><h2>Economia</h2></div><a href="#" class="text-link">Mais notícias →</a></div><div id="economia-news" class="news-feed"><p class="news-state">Carregando notícias...</p></div></section>
+      </div>
+
+      <section id="tecnologia" class="section section-tinted"><div class="container"><div class="section-heading"><div><p class="eyebrow">FUTURO EM FOCO</p><h2>Tecnologia &amp; Inovação</h2></div><a href="#" class="text-link">Explorar tecnologia →</a></div><div id="tecnologia-news" class="news-feed"><p class="news-state">Carregando notícias...</p></div></div></section>
+
+      <section id="mobilidade" class="section services-section"><div class="container"><div class="section-heading"><div><p class="eyebrow">SÃO PAULO NO DIA A DIA</p><h2>Mobilidade &amp; Serviços</h2></div><a href="https://sp156.prefeitura.sp.gov.br/portal/servicos" class="text-link" target="_blank" rel="noopener noreferrer">Acessar SP156 →</a></div><div id="mobility-panel" class="mobility-panel" aria-live="polite"><p class="news-state">Carregando informações de serviço...</p></div></div></section>
+
+      <div class="container dual-sections"><section id="esportes" class="section category-section"><div class="section-heading"><div><p class="eyebrow">EM MOVIMENTO</p><h2>Esportes</h2></div><a href="#" class="text-link">Mais notícias →</a></div><div id="esportes-news" class="news-feed"><p class="news-state">Carregando notícias...</p></div></section><section id="clima" class="section weather-card" aria-live="polite"><p class="weather-loading">Carregando previsão para São Paulo...</p></section></div>
+
+      <section class="container section popular"><div class="section-heading"><div><p class="eyebrow">O QUE TODOS ESTÃO LENDO</p><h2>Mais lidas</h2></div></div><ol><li><a href="#">As ideias que estão mudando o jeito de olhar para as cidades</a><span>01</span></li><li><a href="#">Tecnologia no dia a dia: o que vale acompanhar agora</a><span>02</span></li><li><a href="#">Agenda cultural: escolhas para aproveitar São Paulo</a><span>03</span></li><li><a href="#">Pequenos hábitos que fazem grandes diferenças</a><span>04</span></li></ol></section>
+    </main>
+    <footer><div class="container footer-inner"><a class="brand" href="#inicio">NEXUS<span>•</span>NEWS</a><p>Informação para quem olha adiante. <small>Layout demonstrativo da Fase 1.</small></p><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+  </body>
+</html>

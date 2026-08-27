@@ -1,0 +1,22 @@
+/* Estilos específicos adicionados na Fase 2. */
+.clock-heading { min-width: 130px; }
+.current-date { margin: 0; color: var(--muted); font-size: .7rem; }
+.city-select { display: grid; gap: 4px; color: var(--muted); font-size: .68rem; white-space: nowrap; }
+.city-select select { padding: 4px 5px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--text); font: inherit; }
+
+@media (max-width: 900px) {
+  .clock-strip { gap: 20px; }
+  .city-select { display: none; }
+}
+
+@media (max-width: 620px) {
+  .clock-heading { display: flex; justify-content: space-between; align-items: start; }
+  .clocks { padding-top: 12px; }
+}
+
+.weather-content { display: flex; justify-content: space-between; gap: 15px; width: 100%; }
+.weather-loading { margin: auto; font-weight: 600; }
+
+@media (max-width: 620px) {
+  .weather-content { display: block; }
+}
